@@ -1,0 +1,158 @@
+.container{
+  margin: 15px;
+  background: rgb(250, 250, 250);
+  border: 1px solid;
+  min-height: 200px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-color: #000000;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+
+.player-health {
+  background-color: #ececec;
+  min-height: 150px;
+  width: 49%;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  border: 1px solid #000000;
+  justify-content: center;
+  align-items: center;
+}
+
+.player-health h1 {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  text-align: center;
+}
+
+.player-health p {
+  text-align: center;
+  color: green;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+.life-bar {
+  height: 30px;
+  border: 2px solid rgb(0, 0, 0);
+  width: 80%;
+  align-self: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.life-bar-content {
+  background-color: red;
+  width: 100%;
+  height: 100%;
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.btn {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 22px;
+  border-radius: 20px;
+  border: 3px solid #000;
+  padding: 10px;
+  font-weight: bold;
+  margin-left: 5px;
+}
+
+.btn-start-game {
+  background: #2400c7;
+  color: #DDD;
+  transition: 0.3s;
+}
+
+.btn-start-game:hover {
+  color: #2400c7;
+  background: #DDD;
+}
+
+.btn-attack {
+  background: #c70000;
+  color: #DDD;
+  transition: 0.3s;
+}
+
+.btn-attack:hover {
+  color: #c70000;
+  background: #DDD;
+}
+
+.btn-special {
+  background: #fffb00;
+  color: #000;
+  transition: 0.3s;
+}
+
+.btn-special:hover {
+  background-color: #ff8800;
+  color: #DDD;
+}
+
+.btn-heal {
+  background: #09ff00;
+  color: #000;
+  transition: 0.3s;
+}
+
+.btn-heal:hover {
+  background-color: #1c640e;
+  color: #DDD;
+}
+
+footer {
+  background-color: rgb(230, 227, 227);
+  height: 80px;
+  border: 1px solid #000;
+  margin: 15px;
+  padding: 10px;
+}
+
+.log-container {
+  background-color: rgb(230, 227, 227);
+  min-height: 80px;
+  border: 1px solid #000;
+  padding: 20px;
+}
+
+.log {
+  border-radius: 20px;
+  border: 3px solid #000;
+  height: 40px;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5px;
+  color: rgb(41, 37, 37);
+  font-size: 22px;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: 10px;
+  margin: 15px;
+}
+
+.btn-exit {
+  background: #e4e4e4;
+  color: #000;
+  transition: 0.3s;
+}
+
+.btn-exit:hover {
+  background-color: #161616;
+  color: #DDD;
+}
+
+.rematch {
+  text-decoration: none;
+}

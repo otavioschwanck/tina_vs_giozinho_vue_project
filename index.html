@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=800, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <title>Tina VS Stewie</title>
+</head>
+<body>
+  <div id = "app">
+    <div class="container">
+      <div class="player-health">
+        <h1>{{ player.name }}</h1>
+        <div class="life-bar">
+          <div class="life-bar-content" :style="playerBarCss">
+          </div>
+        </div>
+        <p><i class="fas fa-heart"></i>{{ player.currentLife }}/{{ player.life }}</p>
+      </div>
+
+      <div class="player-health">
+        <h1>{{ enemy.name }} </h1>
+        <div class="life-bar">
+          <div class="life-bar-content" :style="enemyBarCss">
+          </div>
+        </div>
+        <p><i class="fas fa-heart"></i>{{ enemy.currentLife }}/{{ enemy.life }}</p>
+      </div>
+    </div>
+    <div class="container">
+      <template v-if="gameState == 'idle'">
+        <button @click="startGame()" class="btn btn-start-game"><i class="fas fa-play-circle"></i> Iniciar jogo</button>
+      </template>
+
+      <template v-else-if="gameState == 'playing'">
+        <button @click="playerAttack" class="btn btn-attack"><i class="fas fa-skating"></i> Atacar</button>
+        <button @click="playerSpecial" class="btn btn-special"><i class="fas fa-fire"></i> Especial</button>
+        <button @click="heal" class="btn btn-heal"><i class="fas fa-briefcase-medical"></i> Curar</button>
+        <button @click="exitGame" class="btn btn-exit"><i class="fas fa-external-link-square-alt "></i> sair do jogo</button>
+      </template>
+
+      <template v-else-if="gameState == 'winner'">
+        <h1><strong>Tininha</strong> venceu! Yaaaay! Giozinho quer revanche, <a @click = "resetGame" class = "rematch" href="#">Clique aqui</a> para dar a revanche</h1>
+      </template>
+
+      <template v-else-if="gameState == 'lose'">
+        <h1><strong>Giozinho</strong> venceu! que pena ;( <a @click = "resetGame" class = "rematch" href="#">Clique aqui</a> para tentar de novo!</h1>
+      </template>
+    </div>
+    <div class="log-container" v-if="logs.length > 0">
+      <div class="log" :style="{ backgroundColor: log.color}" :key = "log.id" v-for="log in logs.slice().reverse()">
+         <template v-if="log.type == 'attack'">
+          <strong>{{ log.attacker }}</strong> atacou <strong>{{ log.defender }}</strong> causando <i class="fas fa-heart"></i> {{ log.totalDamage }} de dano. <span v-if="log.message">{{ log.message }}</span>
+        </template>
+        <template v-else-if="log.type == 'heal'">
+          <strong>{{ player.name }} </strong> se curou com <i class="fas fa-briefcase-medical"></i> {{ log.healAmount }}
+        </template>
+      </div>
+    </div>
+    <footer>
+      Game status: {{ gameState }}
+      <p v-if="gameState == 'idle'">Seja bem vindo, clique em Iniciar jogo para começar uma épica aventura.</p>
+      <p v-else-if="gameState == 'playing'">O Combate começou, selecione sua jogada.</p>
+      <p v-else-if="gameState == 'winner'">Você venceu, parabéns!</p>
+      <p v-else-if="gameState == 'lose'">Que pena, você perdeu, tente novamente.</p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
